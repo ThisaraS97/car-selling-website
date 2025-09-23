@@ -72,10 +72,11 @@
 									<span class="image">
 										<img src="images/product-1-720x480.jpg" alt="" />
 									</span>
-									<a href="#footer" class="scrolly">
+									<a href="#footer" class="scrolly vehicle-select" data-vehicle="VH001">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
 										
 										<p>price from: <strong> $ 140.00</strong> per weekend</p>
+										<p><strong>Vehicle Number:</strong> VH001</p>
 
 										<p>
 											<i class="fa fa-user"></i> 5 &nbsp;&nbsp;
@@ -89,10 +90,11 @@
 									<span class="image">
 										<img src="images/product-2-720x480.jpg" alt="" />
 									</span>
-									<a href="#footer" class="scrolly">
+									<a href="#footer" class="scrolly vehicle-select" data-vehicle="VH002">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
 										
 										<p>price from: <strong> $ 140.00</strong> per weekend</p>
+										<p><strong>Vehicle Number:</strong> VH002</p>
 
 										<p>
 											<i class="fa fa-user"></i> 5 &nbsp;&nbsp;
@@ -106,10 +108,11 @@
 									<span class="image">
 										<img src="images/product-3-720x480.jpg" alt="" />
 									</span>
-									<a href="#footer" class="scrolly">
+									<a href="#footer" class="scrolly vehicle-select" data-vehicle="VH003">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
 										
 										<p>price from: <strong> $ 140.00</strong> per weekend</p>
+										<p><strong>Vehicle Number:</strong> VH003</p>
 
 										<p>
 											<i class="fa fa-user"></i> 5 &nbsp;&nbsp;
@@ -124,10 +127,11 @@
 									<span class="image">
 										<img src="images/product-4-720x480.jpg" alt="" />
 									</span>
-									<a href="#footer" class="scrolly">
+									<a href="#footer" class="scrolly vehicle-select" data-vehicle="VH004">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
 										
 										<p>price from: <strong> $ 140.00</strong> per weekend</p>
+										<p><strong>Vehicle Number:</strong> VH004</p>
 
 										<p>
 											<i class="fa fa-user"></i> 5 &nbsp;&nbsp;
@@ -142,10 +146,11 @@
 									<span class="image">
 										<img src="images/product-5-720x480.jpg" alt="" />
 									</span>
-									<a href="#footer" class="scrolly">
+									<a href="#footer" class="scrolly vehicle-select" data-vehicle="VH005">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
 										
 										<p>price from: <strong> $ 140.00</strong> per weekend</p>
+										<p><strong>Vehicle Number:</strong> VH005</p>
 
 										<p>
 											<i class="fa fa-user"></i> 5 &nbsp;&nbsp;
@@ -160,10 +165,11 @@
 									<span class="image">
 										<img src="images/product-6-720x480.jpg" alt="" />
 									</span>
-									<a href="#footer" class="scrolly">
+									<a href="#footer" class="scrolly vehicle-select" data-vehicle="VH006">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
 										
 										<p>price from: <strong> $ 140.00</strong> per weekend</p>
+										<p><strong>Vehicle Number:</strong> VH006</p>
 
 										<p>
 											<i class="fa fa-user"></i> 5 &nbsp;&nbsp;
@@ -195,6 +201,10 @@
 												<option value="">Select Fleet C</option>
 												<option value="">Select Fleet D</option>
 											</select>
+										</div>
+
+										<div class="field half">
+											<input type="text" name="vehicle-number" id="vehicle-number" placeholder="Vehicle Number" />
 										</div>
 
 										<div class="field half">
@@ -261,6 +271,14 @@
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				$(document).ready(function() {
+					$('.vehicle-select').click(function(e) {
+						var vehicleNumber = $(this).data('vehicle');
+						$('#vehicle-number').val(vehicleNumber);
+					});
+				});
+			</script>
 
 	</body>
 </html>
