@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/theme.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -25,6 +26,7 @@
 							<nav>
 								<ul>
 									<li><a href="#menu">Menu</a></li>
+									<li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme"></button></li>
 								</ul>
 							</nav>
 
@@ -66,9 +68,13 @@
 								<img src="images/banner-image-1-1920x500.jpg" class="img-fluid" alt="" />
 							</div>
 
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<p>Welcome to our premier car rental service, where we have been serving customers with reliable and affordable transportation solutions for over 15 years. Founded in 2008, our company started with a simple mission: to provide high-quality vehicles and exceptional customer service to travelers, business professionals, and local residents alike.</p>
+							
+							<p>Our extensive fleet features a wide range of vehicles to meet every need and budget. From economical compact cars perfect for city driving to spacious SUVs ideal for family adventures, and luxury sedans for business executives. All our vehicles are regularly maintained, thoroughly inspected, and equipped with modern safety features to ensure your peace of mind on the road.</p>
+							
+							<p>What sets us apart is our commitment to transparency and customer satisfaction. We offer competitive pricing with no hidden fees, 24/7 customer support, and flexible rental terms. Whether you need a car for a few hours, several days, or extended periods, our experienced team is here to help you find the perfect vehicle solution.</p>
+							
+							<p>We pride ourselves on our convenient locations, easy booking process, and dedication to environmental responsibility. Many of our newer vehicles feature fuel-efficient engines and hybrid technology, helping you save money while reducing your carbon footprint. Choose us for your next rental experience and discover why thousands of customers trust us with their transportation needs.</p>
 						</div>
 					</div>
 
@@ -101,5 +107,22 @@
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				// Theme toggle functionality
+				const themeToggle = document.getElementById('themeToggle');
+				const body = document.body;
+
+				// Load saved theme or default to light
+				const savedTheme = localStorage.getItem('theme') || 'light';
+				body.setAttribute('data-theme', savedTheme);
+
+				themeToggle.addEventListener('click', () => {
+					const currentTheme = body.getAttribute('data-theme');
+					const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+					
+					body.setAttribute('data-theme', newTheme);
+					localStorage.setItem('theme', newTheme);
+				});
+			</script>
 	</body>
 </html>

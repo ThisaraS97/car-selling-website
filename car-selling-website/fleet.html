@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/theme.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -25,6 +26,7 @@
 								<nav>
 									<ul>
 										<li><a href="#menu">Menu</a></li>
+										<li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme"></button></li>
 									</ul>
 								</nav>
 
@@ -263,6 +265,23 @@
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
+				// Theme toggle functionality
+				const themeToggle = document.getElementById('themeToggle');
+				const body = document.body;
+
+				// Load saved theme or default to light
+				const savedTheme = localStorage.getItem('theme') || 'light';
+				body.setAttribute('data-theme', savedTheme);
+
+				themeToggle.addEventListener('click', () => {
+					const currentTheme = body.getAttribute('data-theme');
+					const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+					
+					body.setAttribute('data-theme', newTheme);
+					localStorage.setItem('theme', newTheme);
+				});
+
+				// Vehicle selection functionality
 				$(document).ready(function() {
 					$('.vehicle-select').click(function(e) {
 						var vehicleNumber = $(this).data('vehicle');

@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/theme.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -25,6 +26,7 @@
 								<nav>
 									<ul>
 										<li><a href="#menu">Menu</a></li>
+										<li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme"></button></li>
 									</ul>
 								</nav>
 
@@ -73,33 +75,33 @@
 											<div class="col-sm-6 text-center">
 												<img src="images/blog-1-720x480.jpg" class="img-fluid" alt="" />
 
-												<h2 class="m-n"><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
+												<h2 class="m-n"><a href="blog-post.html">Top 10 Tips for First-Time Car Renters</a></h2>
 
-												<p> John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
+												<p> Sarah Mitchell &nbsp;|&nbsp; March 15, 2024 10:30</p>
 											</div>
 
 											<div class="col-sm-6 text-center">
 												<img src="images/blog-2-720x480.jpg" class="img-fluid" alt="" />
 
-												<h2 class="m-n"><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
+												<h2 class="m-n"><a href="blog-post.html">How to Choose the Perfect Rental Car for Your Trip</a></h2>
 
-												<p> John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
+												<p> Michael Johnson &nbsp;|&nbsp; March 12, 2024 14:20</p>
 											</div>
 
 											<div class="col-sm-6 text-center">
 												<img src="images/blog-3-720x480.jpg" class="img-fluid" alt="" />
 
-												<h2 class="m-n"><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
+												<h2 class="m-n"><a href="blog-post.html">Understanding Car Rental Insurance: What You Need to Know</a></h2>
 
-												<p> John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
+												<p> David Chen &nbsp;|&nbsp; March 10, 2024 09:15</p>
 											</div>
 
 											<div class="col-sm-6 text-center">
 												<img src="images/blog-3-720x480.jpg" class="img-fluid" alt="" />
 
-												<h2 class="m-n"><a href="blog-post.html">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
+												<h2 class="m-n"><a href="blog-post.html">Best Road Trip Destinations for Summer 2024</a></h2>
 
-												<p> John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
+												<p> Lisa Rodriguez &nbsp;|&nbsp; March 08, 2024 16:45</p>
 											</div>
 										</div>
 									</div>
@@ -111,7 +113,7 @@
 
 										<div class="form-group">
 				                            <div class="input-group">
-				                                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+				                                <input type="text" class="form-control" placeholder="Search articles..." aria-label="Search" aria-describedby="basic-addon2">
 
 				                                <span class="input-group-addon"><a href="#"><i class="fa fa-search"></i></a></span>
 				                            </div>
@@ -119,13 +121,31 @@
 
 				                        <br>
 
-				                        <p><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></p>
+				                        <h4>Popular Articles</h4>
 
-				                        <p><a href="#">Non, magni, sequi. Explicabo illum quas debitis ut.</a></p>
+				                        <p><a href="#">5 Money-Saving Tips for Car Rentals</a></p>
 
-				                        <p><a href="#">Vatae expedita deleniti optio ex adipisci . </a></p>
+				                        <p><a href="#">Electric vs Gas: Which Rental Car is Right for You?</a></p>
 
-				                        <p><a href="#">Soluta non modi dolorem voluptates dolor laborum.</a></p>
+				                        <p><a href="#">International Driving: What Documents You Need</a></p>
+
+				                        <p><a href="#">Luxury Car Rentals: When to Splurge and When to Save</a></p>
+
+				                        <p><a href="#">Family Road Trip Planning Guide</a></p>
+
+				                        <br>
+
+				                        <h4>Categories</h4>
+
+				                        <p><a href="#">Travel Tips (12)</a></p>
+
+				                        <p><a href="#">Car Reviews (8)</a></p>
+
+				                        <p><a href="#">Road Safety (6)</a></p>
+
+				                        <p><a href="#">Destinations (15)</a></p>
+
+				                        <p><a href="#">Industry News (4)</a></p>
 									</div>
 								</div>
 							</div>
@@ -161,6 +181,23 @@
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				// Theme toggle functionality
+				const themeToggle = document.getElementById('themeToggle');
+				const body = document.body;
+
+				// Load saved theme or default to light
+				const savedTheme = localStorage.getItem('theme') || 'light';
+				body.setAttribute('data-theme', savedTheme);
+
+				themeToggle.addEventListener('click', () => {
+					const currentTheme = body.getAttribute('data-theme');
+					const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+					
+					body.setAttribute('data-theme', newTheme);
+					localStorage.setItem('theme', newTheme);
+				});
+			</script>
 
 	</body>
 </html>
