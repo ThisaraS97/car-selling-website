@@ -1,0 +1,247 @@
+:root {
+  /* Light theme colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e9ecef;
+  --card-bg: #ffffff;
+  --header-bg: #ffffff;
+  --footer-bg: #2c3e50;
+  --accent-color: #007bff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --menu-bg: #ffffff;
+  --menu-text: #333333;
+  --menu-hover: #f8f9fa;
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --border-color: #404040;
+  --card-bg: #2d2d2d;
+  --header-bg: #1a1a1a;
+  --footer-bg: #1a1a1a;
+  --accent-color: #4dabf7;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --menu-bg: #2d2d2d;
+  --menu-text: #ffffff;
+  --menu-hover: #404040;
+}
+
+/* Theme toggle button styling */
+.theme-toggle {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background: #ddd;
+  border-radius: 25px;
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  margin-left: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 17px;
+  height: 17px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: #555;
+}
+
+[data-theme="dark"] .theme-toggle::before {
+  transform: translateX(25px);
+  background: #ffd700;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent-color);
+  opacity: 0.8;
+}
+
+.theme-toggle:focus {
+  box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.3);
+}
+
+/* Add sun/moon icons */
+.theme-toggle::after {
+  content: '☀️';
+  position: absolute;
+  top: 50%;
+  left: 28px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] .theme-toggle::after {
+  content: '🌙';
+  left: 5px;
+}
+
+/* Apply theme colors to existing elements */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+#header .title {
+  color: var(--text-primary) !important;
+}
+
+#header nav ul li a {
+  color: var(--text-primary) !important;
+}
+
+#main {
+  background-color: var(--bg-primary);
+}
+
+#footer {
+  background-color: var(--footer-bg);
+}
+
+.tiles article {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px var(--shadow);
+}
+
+.tiles article:hover {
+  box-shadow: 0 8px 15px var(--shadow);
+}
+
+.tiles article h2,
+.tiles article p {
+  color: var(--text-primary);
+}
+
+#menu {
+  background-color: var(--menu-bg) !important;
+  border-right: 1px solid var(--border-color);
+}
+
+#menu h2 {
+  color: var(--text-primary) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+#menu ul li a {
+  color: var(--menu-text) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  transition: all 0.3s ease;
+}
+
+#menu ul li a:hover,
+#menu ul li a.active {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+#menu ul li ul {
+  background-color: var(--menu-bg) !important;
+}
+
+#menu ul li ul li a {
+  background-color: var(--menu-bg) !important;
+  color: var(--menu-text) !important;
+}
+
+#menu ul li ul li a:hover,
+#menu ul li ul li a.active {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+form .field input,
+form .field select,
+form .field textarea {
+  background-color: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+form .field input::placeholder,
+form .field textarea::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+form .field input:focus,
+form .field select:focus,
+form .field textarea:focus {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.1) !important;
+}
+
+.image.main img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+/* Additional elements that need theming */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+}
+
+p, li {
+  color: var(--text-primary);
+}
+
+.carousel-inner img {
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+/* Blog and testimonial specific styling */
+.col-sm-6 p, .col-sm-4 p {
+  color: var(--text-primary);
+}
+
+/* Contact info and social icons */
+.alt li {
+  color: var(--text-primary);
+}
+
+.alt li a {
+  color: var(--accent-color) !important;
+}
+
+/* Copyright section */
+.copyright li {
+  color: var(--text-secondary) !important;
+}
+
+.copyright li a {
+  color: var(--accent-color) !important;
+}
+
+/* Team member cards */
+.team-member {
+  transition: all 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px var(--shadow);
+}
