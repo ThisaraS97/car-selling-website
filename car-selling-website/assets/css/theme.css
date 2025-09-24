@@ -8,6 +8,7 @@
   --card-bg: #ffffff;
   --header-bg: #ffffff;
   --footer-bg: #2c3e50;
+  --footer-text: #ffffff;
   --accent-color: #007bff;
   --shadow: rgba(0, 0, 0, 0.1);
   --menu-bg: #ffffff;
@@ -25,6 +26,7 @@
   --card-bg: #2d2d2d;
   --header-bg: #1a1a1a;
   --footer-bg: #1a1a1a;
+  --footer-text: #ffffff;
   --accent-color: #4dabf7;
   --shadow: rgba(0, 0, 0, 0.3);
   --menu-bg: #2d2d2d;
@@ -120,7 +122,93 @@ body {
 }
 
 #footer {
-  background-color: var(--footer-bg);
+  background-color: var(--footer-bg) !important;
+  color: var(--footer-text) !important;
+}
+
+#footer h2 {
+  color: var(--footer-text) !important;
+}
+
+#footer p,
+#footer label {
+  color: var(--footer-text) !important;
+}
+
+#footer .alt li {
+  color: var(--footer-text) !important;
+  border-bottom-color: var(--border-color) !important;
+}
+
+#footer .alt li a {
+  color: var(--accent-color) !important;
+}
+
+#footer .alt li .fa {
+  color: var(--accent-color) !important;
+}
+
+/* Social icons in footer */
+#footer .icons li a {
+  color: var(--footer-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+#footer .icons li a:hover {
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+/* Copyright section */
+#footer .copyright li {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-theme="light"] #footer .copyright li {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+#footer .copyright li a {
+  color: var(--accent-color) !important;
+}
+
+/* Form elements in footer */
+#footer form .field input,
+#footer form .field select,
+#footer form .field textarea {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--footer-text) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+#footer form .field input::placeholder,
+#footer form .field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+#footer form .field input:focus,
+#footer form .field select:focus,
+#footer form .field textarea:focus {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.3) !important;
+}
+
+/* Submit button in footer */
+#footer .primary {
+  background-color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+#footer .primary:hover {
+  background-color: #0056b3 !important;
+  border-color: #0056b3 !important;
+}
+
+[data-theme="dark"] #footer .primary:hover {
+  background-color: #339af0 !important;
+  border-color: #339af0 !important;
 }
 
 .tiles article {
