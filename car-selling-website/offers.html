@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/theme.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
 			/* Add spacing between product cards */
@@ -31,6 +32,7 @@
 								<nav>
 									<ul>
 										<li><a href="#menu">Menu</a></li>
+										<li><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme"></button></li>
 									</ul>
 								</nav>
 
@@ -79,14 +81,12 @@
 										<img src="images/other-1-720x480.jpg" alt="" class="offer-img" />
 									</span>
 									<a href="#footer" class="scrolly">
-										<h2>Luxury - BMW 5 Series</h2>
+										<h2>Weekend Special Package</h2>
 										
-										<p>Offer: <strong> LKR 18,500,000</strong> </p>
-										<p><strong>Vehicle Number:</strong> VH001</p>
+										<p>price from: <strong> $ 89.99</strong> per weekend</p>
 
 										<div class="content">
-											<p>Original Price: LKR 20,350,000</p>
-											
+											<p>Perfect for weekend getaways! Includes comprehensive insurance, GPS navigation, and roadside assistance. Book Friday to Sunday at unbeatable rates.</p>
 										</div>
 									</a>
 								</article>
@@ -102,7 +102,6 @@
 
 										<div class="content">
 											<p>Original Price: LKR 8,140,000</p>
-											
 										</div>
 									</a>
 								</article>
@@ -111,14 +110,12 @@
 										<img src="images/other-3-720x480.jpg" alt="" class="offer-img" />
 									</span>
 									<a href="#footer" class="scrolly">
-										<h2>Hatchback - Suzuki Swift</h2>
+										<h2>Family Adventure Package</h2>
 										
-										<p>Offer: <strong> LKR 5,000,000</strong> </p>
-										<p><strong>Vehicle Number:</strong> VH003</p>
+										<p>price from: <strong> $ 120.00</strong> per weekend</p>
 
 										<div class="content">
-											<p>Original Price: LKR 5,550,000</p>
-											
+											<p>Spacious SUVs and minivans perfect for family trips. Includes child safety seats, extra luggage space, and family-friendly amenities.</p>
 										</div>
 									</a>
 								</article>
@@ -136,7 +133,6 @@
 
 										<div class="content">
 											<p>Original Price: LKR 22,200,000</p>
-											
 										</div>
 									</a>
 								</article>
@@ -146,6 +142,7 @@
 										<img src="images/other-5-720x480.jpg" alt="" class="offer-img" />
 									</span>
 									<a href="#footer" class="scrolly">
+
 										<h2>Sedan – Nissan Altima</h2>
 										
 										<p>Offer: <strong> LKR 8,325,000</strong> </p>
@@ -153,7 +150,6 @@
 
 										<div class="content">
 											<p>Original Price: LKR 9,250,000</p>
-											
 										</div>
 									</a>
 								</article>
@@ -163,14 +159,12 @@
 										<img src="images/other-5-720x480.jpg" alt="" class="offer-img" />
 									</span>
 									<a href="#footer" class="scrolly">
-										<h2>Compact Car – Hyundai i10</h2>
+										<h2>Luxury Experience Package</h2>
 										
-										<p>Offer: <strong> LKR 4,070,000</strong> </p>
-										<p><strong>Vehicle Number:</strong> VH006</p>
+										<p>price from: <strong> $ 199.00</strong> per day</p>
 
 										<div class="content">
-											<p>Original Price: LKR 4,440,000</p>
-											
+											<p>Premium luxury vehicles including BMW, Mercedes, and Audi. Perfect for special occasions, weddings, or making a lasting impression.</p>
 										</div>
 									</a>
 								</article>
@@ -250,15 +244,20 @@
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
-				// Scroll to contact and set vehicle number on product card click
-				document.querySelectorAll('.tiles article').forEach(function(card) {
-					card.addEventListener('click', function(e) {
-						// Prevent default if clicking on a link
-						if (e.target.tagName === 'A') e.preventDefault();
-						var vehicle = card.getAttribute('data-vehicle');
-						document.getElementById('vehicle-number').value = vehicle;
-						document.getElementById('contact-section').scrollIntoView({ behavior: 'smooth' });
-					});
+				// Theme toggle functionality
+				const themeToggle = document.getElementById('themeToggle');
+				const body = document.body;
+
+				// Load saved theme or default to light
+				const savedTheme = localStorage.getItem('theme') || 'light';
+				body.setAttribute('data-theme', savedTheme);
+
+				themeToggle.addEventListener('click', () => {
+					const currentTheme = body.getAttribute('data-theme');
+					const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+					
+					body.setAttribute('data-theme', newTheme);
+					localStorage.setItem('theme', newTheme);
 				});
 			</script>
 
