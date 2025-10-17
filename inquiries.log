@@ -1,0 +1,42 @@
+-----
+Date: 2025-10-17 06:33:54
+Name: Thisara Shaminda
+Email: wgt.shaminda@gmail.com
+Phone: +94712305174
+Vehicle: VH002
+Message: rhfdg
+Headers: From: Thisara Shaminda <wgt.shaminda@gmail.com>
+Reply-To: wgt.shaminda@gmail.com
+
+-----
+
+-----
+Date: 2025-10-17 06:35:58
+Name: Thisara Shaminda
+Email: wgt.shaminda@gmail.com
+Phone: +94712305174
+Vehicle: VH001
+Message: fhfh
+Headers: From: Thisara Shaminda <wgt.shaminda@gmail.com>
+Reply-To: wgt.shaminda@gmail.com
+
+-----
+
+-----
+Date: 2025-10-17 06:58:56
+Name: Thisara Shaminda
+Email: wgt.shaminda@gmail.com
+Phone: +94712305174
+Vehicle: VH002
+Message: fdgdd
+To: thisara@tecnozone.lk
+From header used: no-reply@yourdomain.com
+Headers: MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+From: Website Inquiry <no-reply@yourdomain.com>
+Reply-To: wgt.shaminda@gmail.com
+X-Mailer: PHP/8.0.30
+
+PHP error_get_last: mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+-----
+
