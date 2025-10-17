@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Motors - Car Rental Sri Lanka</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // Custom Tailwind theme configuration
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            '50': '#eff6ff',
+                            '100': '#dbeafe',
+                            '200': '#bfdbfe',
+                            '300': '#93c5fd',
+                            '400': '#60a5fa',
+                            '500': '#3b82f6',
+                            '600': '#2563eb',
+                            '700': '#1d4ed8',
+                            '800': '#1e40af',
+                            '900': '#1e3a8a',
+                            '950': '#172554',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Basic transition for dark mode */
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .carousel-item {
+            display: none;
+            transition: opacity 0.7s ease-in-out;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <!-- Logo -->
+                    <a href="#" class="flex items-center space-x-2 text-2xl font-bold text-primary-600 dark:text-primary-400">
+                        <i class="fa-solid fa-car"></i>
+                        <span class="title">ABC Motors</span>
+                    </a>
+
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="#" class="text-primary-500 dark:text-primary-400 font-semibold border-b-2 border-primary-500 pb-1">Home</a>
+                        <a href="#offers" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition">Offers</a>
+                        <a href="#fleet" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition">Fleet</a>
+                        <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition">About</a>
+                        <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition">Contact</a>
+                    </nav>
+
+                    <!-- Theme Toggle & Mobile Menu Button -->
+                    <div class="flex items-center">
+                        <button id="themeToggle" aria-label="Toggle dark/light theme" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 focus:outline-none rounded-full p-2 transition">
+                            <i class="fa-solid fa-moon text-xl block dark:hidden"></i>
+                            <i class="fa-solid fa-sun text-xl hidden dark:block"></i>
+                        </button>
+                        <button id="mobile-menu-button" class="md:hidden text-gray-600 dark:text-gray-300 ml-4">
+                             <i class="fa-solid fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+             <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+                <a href="#" class="block py-3 px-4 text-primary-500 dark:text-primary-400 bg-gray-100 dark:bg-gray-700 font-semibold">Home</a>
+                <a href="#offers" class="block py-3 px-4 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Offers</a>
+                <a href="#fleet" class="block py-3 px-4 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Fleet</a>
+                <a href="#about" class="block py-3 px-4 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
+                <a href="#contact" class="block py-3 px-4 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main">
+
+            <!-- Hero Carousel Section -->
+            <section class="relative h-[70vh] w-full overflow-hidden">
+                <div id="carousel-container" class="relative h-full">
+                    <!-- Carousel Items -->
+                    <div class="carousel-item active"><img src="https://placehold.co/1920x700/1e3a8a/ffffff?text=Luxury+Sedans" class="w-full h-full object-cover"></div>
+                    <div class="carousel-item"><img src="https://placehold.co/1920x700/166534/ffffff?text=Spacious+SUVs" class="w-full h-full object-cover"></div>
+                    <div class="carousel-item"><img src="https://placehold.co/1920x700/be123c/ffffff?text=Economic+Hatchbacks" class="w-full h-full object-cover"></div>
+                </div>
+                 <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-center text-white p-4">
+                    <div>
+                        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">Your Journey Starts Here</h1>
+                        <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">Discover the best car rental deals in Sri Lanka. Reliable vehicles for every adventure.</p>
+                        <a href="#fleet" class="mt-8 inline-block bg-primary-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-primary-700 transition duration-300 shadow-lg text-lg">Explore Our Fleet</a>
+                    </div>
+                </div>
+                <!-- Carousel Controls -->
+                <button id="prevBtn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full w-12 h-12 flex items-center justify-center z-10"><i class="fa-solid fa-chevron-left"></i></button>
+                <button id="nextBtn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/30 hover:bg-white/50 text-white rounded-full w-12 h-12 flex items-center justify-center z-10"><i class="fa-solid fa-chevron-right"></i></button>
+            </section>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- About Us Section -->
+                <section id="about" class="py-16 sm:py-24 text-center">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">Find Your Perfect Vehicle Today</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+                        Welcome to ABC Motors, your trusted partner for quality vehicles and exceptional service. Whether you're looking to purchase your dream car or need a reliable rental for your next journey, we offer an extensive selection of well-maintained vehicles at competitive prices. From compact cars perfect for city driving to luxury sedans and spacious SUVs for family adventures, our experienced team is here to help you find the perfect match for your needs and budget.
+                    </p>
+                </section>
+
+                <!-- Offers Section -->
+                <section id="offers" class="py-16 sm:py-24">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">Special Offers</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Offer Card 1 -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                            <img src="https://placehold.co/720x480/dc2626/ffffff?text=Weekend+Special" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Weekend Special</h3>
+                                <p class="mt-2 text-gray-600 dark:text-gray-400">from <strong class="text-xl font-bold text-primary-500 dark:text-primary-400">Rs. 27,000</strong>/weekend</p>
+                                <p class="mt-3 text-gray-700 dark:text-gray-300">Perfect for getaways! Includes insurance, GPS, and roadside assistance.</p>
+                            </div>
+                        </div>
+                        <!-- Offer Card 2 -->
+                         <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                            <img src="https://placehold.co/720x480/1d4ed8/ffffff?text=Business+Travel" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Business Travel Solution</h3>
+                                <p class="mt-2 text-gray-600 dark:text-gray-400">from <strong class="text-xl font-bold text-primary-500 dark:text-primary-400">Rs. 19,500</strong>/day</p>
+                                <p class="mt-3 text-gray-700 dark:text-gray-300">Luxury sedans with Wi-Fi and executive amenities for professionals.</p>
+                            </div>
+                        </div>
+                        <!-- Offer Card 3 -->
+                         <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                            <img src="https://placehold.co/720x480/059669/ffffff?text=Family+Adventure" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Family Adventure Package</h3>
+                                <p class="mt-2 text-gray-600 dark:text-gray-400">from <strong class="text-xl font-bold text-primary-500 dark:text-primary-400">Rs. 36,000</strong>/weekend</p>
+                                <p class="mt-3 text-gray-700 dark:text-gray-300">Spacious SUVs with child seats and extra luggage space available.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-12">
+                        <a href="offers.html" class="text-lg font-semibold text-primary-600 dark:text-primary-400 hover:underline">View Offter List <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </section>
+
+                <!-- Fleet Preview -->
+                <section id="fleet" class="py-16 sm:py-24">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">Our Popular Fleet</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Fleet Card 1 -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://placehold.co/720x480/3b82f6/ffffff?text=Toyota+Camry" alt="Toyota Camry 2024" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Toyota Camry 2024</h3>
+                                <p class="mt-2 text-gray-600 dark:text-gray-400">from <strong class="text-xl font-bold text-primary-500">Rs. 16,500</strong>/day</p>
+                                <div class="mt-4 flex items-center space-x-6 text-gray-700 dark:text-gray-300">
+                                    <span><i class="fa-solid fa-user-group mr-2"></i>5</span>
+                                    <span><i class="fa-solid fa-suitcase-rolling mr-2"></i>4</span>
+                                    <span><i class="fa-solid fa-gears mr-2"></i>Auto</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fleet Card 2 -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://placehold.co/720x480/ef4444/ffffff?text=Honda+CR-V" alt="Honda CR-V SUV" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Honda CR-V SUV</h3>
+                                <p class="mt-2 text-gray-600 dark:text-gray-400">from <strong class="text-xl font-bold text-primary-500">Rs. 22,500</strong>/day</p>
+                                <div class="mt-4 flex items-center space-x-6 text-gray-700 dark:text-gray-300">
+                                   <span><i class="fa-solid fa-user-group mr-2"></i>7</span>
+                                    <span><i class="fa-solid fa-suitcase-rolling mr-2"></i>6</span>
+                                    <span><i class="fa-solid fa-gears mr-2"></i>Auto</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fleet Card 3 -->
+                        <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://placehold.co/720x480/14b8a6/ffffff?text=BMW+3+Series" alt="BMW 3 Series Luxury" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">BMW 3 Series</h3>
+                                <p class="mt-2 text-gray-600 dark:text-gray-400">from <strong class="text-xl font-bold text-primary-500">Rs. 36,000</strong>/day</p>
+                                <div class="mt-4 flex items-center space-x-6 text-gray-700 dark:text-gray-300">
+                                    <span><i class="fa-solid fa-user-group mr-2"></i>5</span>
+                                    <span><i class="fa-solid fa-suitcase-rolling mr-2"></i>3</span>
+                                    <span><i class="fa-solid fa-gears mr-2"></i>Auto</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="text-center mt-12">
+                        <a href="fleet.html" class="text-lg font-semibold text-primary-600 dark:text-primary-400 hover:underline">View Full Fleet <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                    </div>
+                </section>
+                
+                 <!-- Testimonials -->
+                <section class="py-16 sm:py-24">
+                     <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">What Our Clients Say</h2>
+                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                         <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                             <p class="text-gray-700 dark:text-gray-300 italic">"Excellent service from start to finish! The booking process was seamless, and the car was spotless when I picked it up. The staff was incredibly friendly and helpful throughout my rental period. I've used this service multiple times for business trips and they never disappoint."</p>
+                             <p class="mt-4 font-bold text-gray-900 dark:text-white">- Sarah Johnson, Business Executive</p>
+                         </div>
+                         <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                             <p class="text-gray-700 dark:text-gray-300 italic">"As a frequent traveler, I've tried many car rental companies, but this one stands out. Great variety of vehicles, competitive prices, and no hidden fees. The 24/7 customer support saved me when I had a flat tire during a weekend trip."</p>
+                             <p class="mt-4 font-bold text-gray-900 dark:text-white">- Michael Chen, Sales Manager</p>
+                         </div>
+                     </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer id="contact" class="bg-gray-100 dark:bg-gray-950/50 pt-16 pb-8">
+            <div class="inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <!-- Form Section -->
+                    <section>
+                        <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Contact Us</h2>
+                        <form method="post" action="#">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="sr-only">Name</label>
+                                    <input type="text" name="name" id="name" placeholder="Name" required class="w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 transition">
+                                </div>
+                                <div>
+                                    <label for="email" class="sr-only">Email</label>
+                                    <input type="email" name="email" id="email" placeholder="Email" required class="w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 transition">
+                                </div>
+                                <div class="md:col-span-2">
+                                     <label for="subject" class="sr-only">Subject</label>
+                                     <input type="text" name="subject" id="subject" placeholder="Subject" required class="w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 transition">
+                                </div>
+                                <div class="md:col-span-2">
+                                     <label for="message" class="sr-only">Message</label>
+                                     <textarea name="message" id="message" rows="4" placeholder="Your Message..." class="w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 transition"></textarea>
+                                </div>
+                                <div class="md:col-span-2 text-right">
+                                    <button type="submit" class="bg-primary-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-primary-700 transition duration-300 shadow-lg">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                    
+                    <!-- Contact Info -->
+                    <section class="mt-8 lg:mt-0">
+                         <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Our Info</h2>
+                         <ul class="space-y-4 text-lg text-gray-700 dark:text-gray-300">
+                             <li class="flex items-start"><i class="fa-solid fa-map-marker-alt text-primary-500 mt-1 mr-4 w-6 text-center"></i><span>Edmonton Road<br>Colombo 5, Sri Lanka</span></li>
+                             <li class="flex items-center"><i class="fa-solid fa-phone text-primary-500 mr-4 w-6 text-center"></i><a href="tel:+94767619797" class="hover:text-primary-500">+94 76 761 9797</a></li>
+                             <li class="flex items-center"><i class="fa-solid fa-envelope text-primary-500 mr-4 w-6 text-center"></i><a href="mailto:info@abcmotors.lk" class="hover:text-primary-500">info@abcmotors.lk</a></li>
+                         </ul>
+                         <h3 class="text-2xl font-bold mt-10 mb-4 text-gray-900 dark:text-white">Follow Us</h3>
+                         <div class="flex space-x-4">
+                             <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 text-2xl"><i class="fab fa-twitter"></i></a>
+                             <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 text-2xl"><i class="fab fa-facebook"></i></a>
+                             <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 text-2xl"><i class="fab fa-instagram"></i></a>
+                             <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400 text-2xl"><i class="fab fa-linkedin"></i></a>
+                         </div>
+                    </section>
+                </div>
+                
+                <!-- Copyright -->
+                <div class="mt-16 border-t border-gray-200 dark:border-gray-700 pt-8 text-center">
+                    <p class="text-gray-500 dark:text-gray-400">&copy; 2025 ABC Motors. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlEl = document.documentElement;
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') htmlEl.classList.add('dark');
+            themeToggle.addEventListener('click', () => {
+                htmlEl.classList.toggle('dark');
+                localStorage.setItem('theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+            // Carousel
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
+            let intervalId = null;
+
+            function showSlide(index) {
+                carouselItems.forEach((item, i) => {
+                    item.classList.remove('active');
+                    if (i === index) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % carouselItems.length;
+                showSlide(currentIndex);
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+                showSlide(currentIndex);
+            }
+
+            function startCarousel() {
+               intervalId = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            }
+
+            function stopCarousel() {
+                clearInterval(intervalId);
+            }
+
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                stopCarousel();
+                startCarousel();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                stopCarousel();
+                startCarousel();
+            });
+
+            startCarousel();
+        });
+    </script>
+</body>
+</html>
