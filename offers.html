@@ -185,7 +185,11 @@
                     <!-- Form Section -->
                     <section>
                         <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Send An Inquiry</h2>
-                        <form method="post" action="send_inquiry1.php">
+                        <form method="POST" name="offer-inquiry" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
+                            <input type="hidden" name="form-name" value="offer-inquiry" />
+                            <p class="hidden">
+                                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                            </p>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label for="name" class="sr-only">Your Name</label>
@@ -201,7 +205,7 @@
                                 </div>
                                 <div class="md:col-span-2">
                                      <label for="message" class="sr-only">Message</label>
-                                     <textarea name="message" id="message" rows="4" placeholder="Your Message..." class="w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 transition"></textarea>
+                                     <textarea name="message" id="message" rows="4" placeholder="Your Message..." required class="w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 transition"></textarea>
                                 </div>
                                 <div class="md:col-span-2 text-right">
                                     <button type="submit" class="bg-primary-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-primary-700 transition duration-300 shadow-lg">Send Inquiry</button>
@@ -257,20 +261,22 @@
             // Offer selection for inquiry form
             const offerSelectButtons = document.querySelectorAll('.offer-select');
             const subjectInput = document.getElementById('subject');
-            const footerForm = document.getElementById('footer');
+            const footerElement = document.getElementById('footer');
 
             offerSelectButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const subjectText = this.getAttribute('data-subject');
-                    subjectInput.value = subjectText;
-                    // Scroll to the form
-                    footerForm.scrollIntoView({ behavior: 'smooth' });
-                    // Optional: highlight the input field
-                    subjectInput.focus();
-                    subjectInput.classList.add('ring-2', 'ring-primary-500');
-                    setTimeout(() => {
-                         subjectInput.classList.remove('ring-2', 'ring-primary-500');
-                    }, 2000);
+                    if (subjectInput) {
+                        subjectInput.value = subjectText;
+                        // Scroll to the form
+                        footerElement.scrollIntoView({ behavior: 'smooth' });
+                        // Optional: highlight the input field
+                        subjectInput.focus();
+                        subjectInput.classList.add('ring-2', 'ring-primary-500');
+                        setTimeout(() => {
+                             subjectInput.classList.remove('ring-2', 'ring-primary-500');
+                        }, 2000);
+                    }
                 });
             });
         });
