@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use EmailJS with Your Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .step {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>How to Use EmailJS with Your Website</h1>
+    
+    <div class="step">
+        <h2>Step 1: Create an EmailJS Account</h2>
+        <p>Visit <a href="https://www.emailjs.com/" target="_blank">EmailJS.com</a> and create a free account. The free tier provides 200 emails per month.</p>
+    </div>
+    
+    <div class="step">
+        <h2>Step 2: Add an Email Service</h2>
+        <ol>
+            <li>In your EmailJS dashboard, go to "Email Services" and click "Add New Service"</li>
+            <li>Select your email provider (Gmail, Outlook, etc.)</li>
+            <li>Follow the instructions to connect your email account</li>
+            <li>Give your service a name (e.g., "gmail-service") and save the service</li>
+            <li>Note down the Service ID that appears</li>
+        </ol>
+    </div>
+    
+    <div class="step">
+        <h2>Step 3: Create an Email Template</h2>
+        <ol>
+            <li>Go to "Email Templates" in your dashboard and click "Create New Template"</li>
+            <li>Design your email template with a subject line, content, and variables</li>
+            <li>Use variables like {{name}}, {{email}}, {{subject}}, and {{message}} - these should match the form field names</li>
+            <li>Save the template and note down the Template ID</li>
+        </ol>
+        <p>Example template content:</p>
+        <pre>Subject: New Inquiry: {{subject}}
+
+From: {{name}} ({{email}})
+
+Message:
+{{message}}</pre>
+    </div>
+    
+    <div class="step">
+        <h2>Step 4: Add EmailJS to your Website</h2>
+        <p>Add the EmailJS SDK to your website by adding this script before the closing &lt;/body&gt; tag in your HTML:</p>
+        <pre>&lt;script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"&gt;&lt;/script&gt;
+&lt;script src="assets/js/contact.js"&gt;&lt;/script&gt;</pre>
+    </div>
+    
+    <div class="step">
+        <h2>Step 5: Update Your Form</h2>
+        <p>Modify your HTML form to have an ID and update the JavaScript file:</p>
+        <pre>&lt;form id="contact-form"&gt;
+    &lt;!-- Your existing form fields --&gt;
+&lt;/form&gt;</pre>
+    </div>
+    
+    <div class="step">
+        <h2>Step 6: Update the contact.js File</h2>
+        <p>Open the <code>assets/js/contact.js</code> file and update it with your specific information:</p>
+        <ol>
+            <li>Replace <code>YOUR_USER_ID</code> with your EmailJS User ID (found in Account > API Keys)</li>
+            <li>Replace <code>YOUR_SERVICE_ID</code> with the Email Service ID you created</li>
+            <li>Replace <code>YOUR_TEMPLATE_ID</code> with the Email Template ID you created</li>
+        </ol>
+    </div>
+    
+    <div class="step">
+        <h2>Step 7: Test Your Form</h2>
+        <p>Deploy your updated website and test the contact form to make sure emails are being sent correctly.</p>
+    </div>
+    
+    <div class="step">
+        <h2>Additional Notes</h2>
+        <ul>
+            <li>The free tier provides 200 emails/month which should be sufficient for testing</li>
+            <li>EmailJS has security measures to prevent abuse, so your form should be secure</li>
+            <li>For more advanced features, you can explore the EmailJS documentation</li>
+        </ul>
+    </div>
+</body>
+</html>

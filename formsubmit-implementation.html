@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Motors - FormSubmit Implementation</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // Custom Tailwind theme configuration
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            '50': '#eff6ff',
+                            '100': '#dbeafe',
+                            '200': '#bfdbfe',
+                            '300': '#93c5fd',
+                            '400': '#60a5fa',
+                            '500': '#3b82f6',
+                            '600': '#2563eb',
+                            '700': '#1d4ed8',
+                            '800': '#1e40af',
+                            '900': '#1e3a8a',
+                            '950': '#172554',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans p-4">
+    <div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold mb-6 text-primary-600 dark:text-primary-400">FormSubmit Implementation</h1>
+        
+        <p class="mb-4">To implement FormSubmit on your car-selling website, follow these steps:</p>
+        
+        <ol class="list-decimal pl-6 space-y-4 mb-6">
+            <li>Replace the existing contact form in your <code class="bg-gray-100 dark:bg-gray-700 px-1 py-0.5 rounded">index.html</code> file with the code below</li>
+            <li>Replace <code class="bg-gray-100 dark:bg-gray-700 px-1 py-0.5 rounded">YOUR_EMAIL@EXAMPLE.COM</code> with your actual email address</li>
+            <li>Update <code class="bg-gray-100 dark:bg-gray-700 px-1 py-0.5 rounded">https://your-site-url.netlify.app/success.html</code> with your actual website URL</li>
+        </ol>
+        
+        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-x-auto mb-8">
+            <pre class="text-sm text-gray-800 dark:text-gray-300"><code>&lt;!-- Form Section --&gt;
+&lt;section&gt;
+    &lt;h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white"&gt;Contact Us&lt;/h2&gt;
+    &lt;form method="POST" action="https://formsubmit.co/YOUR_EMAIL@EXAMPLE.COM"&gt;
+        &lt;!-- FormSubmit Configuration --&gt;
+        &lt;input type="hidden" name="_subject" value="New inquiry from ABC Motors website"&gt;
+        &lt;input type="hidden" name="_next" value="https://your-site-url.netlify.app/success.html"&gt;
+        &lt;input type="hidden" name="_captcha" value="true"&gt;
+        &lt;input type="hidden" name="_template" value="box"&gt;
+        &lt;input type="text" name="_honey" style="display:none"&gt;
+        
+        &lt;div class="grid grid-cols-1 md:grid-cols-2 gap-6"&gt;
+            &lt;div&gt;
+                &lt;label for="name" class="sr-only"&gt;Name&lt;/label&gt;
+                &lt;input type="text" name="name" id="name" placeholder="Name" required class="w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 transition"&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;label for="email" class="sr-only"&gt;Email&lt;/label&gt;
+                &lt;input type="email" name="email" id="email" placeholder="Email" required class="w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 transition"&gt;
+            &lt;/div&gt;
+            &lt;div class="md:col-span-2"&gt;
+                &lt;label for="subject" class="sr-only"&gt;Subject&lt;/label&gt;
+                &lt;input type="text" name="subject" id="subject" placeholder="Subject" required class="w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 transition"&gt;
+            &lt;/div&gt;
+            &lt;div class="md:col-span-2"&gt;
+                &lt;label for="message" class="sr-only"&gt;Message&lt;/label&gt;
+                &lt;textarea name="message" id="message" rows="4" placeholder="Your Message..." required class="w-full bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 transition"&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+            &lt;div class="md:col-span-2 text-right"&gt;
+                &lt;button type="submit" class="bg-primary-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-primary-700 transition duration-300 shadow-lg"&gt;Send Message&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/section&gt;</code></pre>
+        </div>
+        
+        <h2 class="text-xl font-bold mb-2">How FormSubmit Works</h2>
+        <p class="mb-4">FormSubmit is a free service that handles form submissions and forwards them to your email. When someone submits your contact form:</p>
+        
+        <ol class="list-decimal pl-6 space-y-2 mb-6">
+            <li>The form data is sent to FormSubmit's servers</li>
+            <li>FormSubmit processes the data and sends you an email with the details</li>
+            <li>The user is redirected to your success page</li>
+        </ol>
+        
+        <h2 class="text-xl font-bold mb-2">First Submission</h2>
+        <p class="mb-4">The first time someone submits the form, you'll receive an activation email from FormSubmit. You must click the activation link to start receiving form submissions. This prevents spam and unauthorized use.</p>
+        
+        <div class="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-500 p-4 mb-6">
+            <p class="text-blue-700 dark:text-blue-300">After implementing FormSubmit, make a test submission yourself to receive and activate the confirmation email.</p>
+        </div>
+        
+        <p class="text-gray-600 dark:text-gray-400 text-sm">For more information, visit <a href="https://formsubmit.co/" class="text-primary-600 dark:text-primary-400 underline" target="_blank">FormSubmit.co</a>.</p>
+    </div>
+
+    <script>
+        // Theme detection
+        if (localStorage.getItem('theme') === 'dark' || 
+            (localStorage.getItem('theme') === null && 
+             window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+</html>

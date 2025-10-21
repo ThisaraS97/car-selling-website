@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent - ABC Motors</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // Custom Tailwind theme configuration
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            '50': '#eff6ff',
+                            '100': '#dbeafe',
+                            '200': '#bfdbfe',
+                            '300': '#93c5fd',
+                            '400': '#60a5fa',
+                            '500': '#3b82f6',
+                            '600': '#2563eb',
+                            '700': '#1d4ed8',
+                            '800': '#1e40af',
+                            '900': '#1e3a8a',
+                            '950': '#172554',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Basic transition for dark mode */
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="min-h-screen flex flex-col">
+
+        <!-- Header -->
+        <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-primary-600 dark:text-primary-400">
+                        <i class="fa-solid fa-car"></i>
+                        <span class="title">ABC Motors</span>
+                    </a>
+
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="index.html" class="text-primary-500 dark:text-primary-400 font-semibold border-b-2 border-primary-500 pb-1">Home</a>
+                        <a href="index.html#offers" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition">Offers</a>
+                        <a href="index.html#fleet" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition">Fleet</a>
+                        <a href="index.html#about" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition">About</a>
+                        <a href="index.html#contact" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 transition">Contact</a>
+                    </nav>
+
+                    <!-- Theme Toggle & Mobile Menu Button -->
+                    <div class="flex items-center">
+                        <button id="themeToggle" aria-label="Toggle dark/light theme" class="text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 focus:outline-none rounded-full p-2 transition">
+                            <i class="fa-solid fa-moon text-xl block dark:hidden"></i>
+                            <i class="fa-solid fa-sun text-xl hidden dark:block"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow flex items-center justify-center py-16">
+            <div class="max-w-md mx-auto text-center px-4">
+                <div class="text-primary-500 dark:text-primary-400 text-7xl mb-6">
+                    <i class="fa-solid fa-check-circle"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Message Sent Successfully!</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                    Thank you for contacting ABC Motors. We've received your inquiry and will get back to you shortly.
+                </p>
+                <a href="index.html" class="inline-block bg-primary-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-primary-700 transition duration-300 shadow-lg text-lg">
+                    Back to Homepage
+                </a>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-100 dark:bg-gray-950/50 pt-8 pb-6">
+            <div class="inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <p class="text-gray-500 dark:text-gray-400">&copy; 2025 ABC Motors. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlEl = document.documentElement;
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') htmlEl.classList.add('dark');
+            themeToggle.addEventListener('click', () => {
+                htmlEl.classList.toggle('dark');
+                localStorage.setItem('theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+            });
+        });
+    </script>
+</body>
+</html>
