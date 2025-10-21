@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use FormSubmit with Your Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .step {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>How to Use FormSubmit.co with Your Website</h1>
+    
+    <div class="step">
+        <h2>Step 1: Update Your Form Action</h2>
+        <p>Modify your contact form to use FormSubmit by changing the action attribute:</p>
+        <pre>&lt;form method="POST" action="https://formsubmit.co/your-email@example.com"&gt;
+    &lt;!-- Your existing form fields --&gt;
+&lt;/form&gt;</pre>
+        <p>Replace <code>your-email@example.com</code> with the email address where you want to receive submissions.</p>
+    </div>
+    
+    <div class="step">
+        <h2>Step 2: Activate Your FormSubmit Account</h2>
+        <p>The first time someone submits the form, you'll receive an activation email from FormSubmit. Click the activation link to confirm your email address.</p>
+    </div>
+    
+    <div class="step">
+        <h2>Step 3: Add Optional Features</h2>
+        <p>FormSubmit offers several optional features using hidden fields:</p>
+        
+        <h3>Custom Subject Line:</h3>
+        <pre>&lt;input type="hidden" name="_subject" value="New inquiry from ABC Motors website"&gt;</pre>
+        
+        <h3>Custom Success Page:</h3>
+        <pre>&lt;input type="hidden" name="_next" value="https://your-website.com/success.html"&gt;</pre>
+        
+        <h3>Enable CAPTCHA:</h3>
+        <pre>&lt;input type="hidden" name="_captcha" value="true"&gt;</pre>
+        
+        <h3>Custom Email Template:</h3>
+        <pre>&lt;input type="hidden" name="_template" value="box"&gt;</pre>
+        
+        <h3>Honeypot to Prevent Spam:</h3>
+        <pre>&lt;input type="text" name="_honey" style="display:none"&gt;</pre>
+    </div>
+    
+    <div class="step">
+        <h2>Complete Form Example</h2>
+        <pre>&lt;form method="POST" action="https://formsubmit.co/your-email@example.com"&gt;
+    &lt;input type="hidden" name="_subject" value="New inquiry from ABC Motors website"&gt;
+    &lt;input type="hidden" name="_next" value="https://your-website.com/success.html"&gt;
+    &lt;input type="hidden" name="_captcha" value="true"&gt;
+    &lt;input type="hidden" name="_template" value="box"&gt;
+    &lt;input type="text" name="_honey" style="display:none"&gt;
+    
+    &lt;div&gt;
+        &lt;label for="name"&gt;Name&lt;/label&gt;
+        &lt;input type="text" name="name" id="name" required&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+        &lt;label for="email"&gt;Email&lt;/label&gt;
+        &lt;input type="email" name="email" id="email" required&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+        &lt;label for="subject"&gt;Subject&lt;/label&gt;
+        &lt;input type="text" name="subject" id="subject" required&gt;
+    &lt;/div&gt;
+    
+    &lt;div&gt;
+        &lt;label for="message"&gt;Message&lt;/label&gt;
+        &lt;textarea name="message" id="message" rows="4" required&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    
+    &lt;button type="submit"&gt;Send Message&lt;/button&gt;
+&lt;/form&gt;</pre>
+    </div>
+    
+    <div class="step">
+        <h2>Advantages of FormSubmit</h2>
+        <ul>
+            <li><strong>Free:</strong> No registration required, unlimited submissions</li>
+            <li><strong>Simple Setup:</strong> Just change the form action</li>
+            <li><strong>Anti-spam:</strong> Built-in spam protection</li>
+            <li><strong>File Uploads:</strong> Supports file attachments</li>
+            <li><strong>Custom Redirects:</strong> Redirect to a thank you page</li>
+            <li><strong>No Backend Code:</strong> Works with static sites</li>
+        </ul>
+    </div>
+    
+    <div class="step">
+        <h2>Limitations</h2>
+        <ul>
+            <li>Your email address is visible in the HTML source (though they offer an alias feature for the paid plan)</li>
+            <li>Limited customization of email templates in the free tier</li>
+            <li>Cannot store submissions (emails only)</li>
+        </ul>
+    </div>
+</body>
+</html>
