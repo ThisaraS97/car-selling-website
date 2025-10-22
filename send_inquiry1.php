@@ -1,44 +1,61 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Send_inquiry1.php - For handling offer inquiries
 
-    // Sanitize input
-    $name = htmlspecialchars($_POST['name']);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $subject = htmlspecialchars($_POST['subject']);
-    $message = htmlspecialchars($_POST['message']);
+// Allow only POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['success' => false, 'message' => 'Invalid request method.']);
+    exit;
+}
 
-    // Recipient email (your email)
-    $to = "thisarashaminda197@gmail.com";
+// Helper to get POST safely
+function get_post($key) {
+    return isset($_POST[$key]) ? trim($_POST[$key]) : '';
+}
 
-    // Email body (HTML)
-    $body = "
-    <html>
-    <head>
-        <title>New Inquiry</title>
-    </head>
-    <body>
-        <h2>New Inquiry Received</h2>
-        <p><strong>Name:</strong> $name</p>
-        <p><strong>Email:</strong> $email</p>
-        <p><strong>Subject:</strong> $subject</p>
-        <p><strong>Message:</strong> $message</p>
-    </body>
-    </html>
-    ";
+// Collect fields
+$name = strip_tags(get_post('name'));
+$email = filter_var(get_post('email'), FILTER_SANITIZE_EMAIL);
+$phone = strip_tags(get_post('phone'));
+$subject = strip_tags(get_post('subject'));
+$message = strip_tags(get_post('message'));
 
-    // Headers
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: $name <$email>" . "\r\n";
+// Basic validation
+$errors = [];
+if (!$name) $errors[] = 'Name is required.';
+if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Valid email is required.';
+if (!$message) $errors[] = 'Message is required.';
 
-    // Send email
-    if (mail($to, $subject, $body, $headers)) {
-        echo "<script>alert('✅ Inquiry sent successfully!'); window.location='index.html';</script>";
-    } else {
-        echo "<script>alert('❌ Failed to send inquiry. Please try again.'); window.location='index.html';</script>";
-    }
+if (!empty($errors)) {
+    echo json_encode(['success' => false, 'message' => implode(' ', $errors)]);
+    exit;
+}
+
+// Prepare email
+$to = 'info@abcmotors.lk'; // replace with destination email
+$subject = "Special Offer Inquiry: " . ($subject ? $subject : 'General Inquiry');
+$body  = "You have received a new offer inquiry from your website.\n\n";
+$body .= "Name: $name\n";
+$body .= "Email: $email\n";
+$body .= "Phone: $phone\n";
+$body .= "Subject: $subject\n\n";
+$body .= "Message:\n$message\n";
+
+// Headers
+$headers = "From: {$name} <{$email}>\r\n";
+$headers .= "Reply-To: {$email}\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+// Try to send
+$sent = @mail($to, $subject, $body, $headers);
+
+if ($sent) {
+    echo json_encode(['success' => true, 'message' => 'Inquiry sent successfully.']);
+    exit;
 } else {
-    header("Location: index.html");
-    exit();
+    // If mail() fails, return error. On local dev you may need to configure SMTP (XAMPP).
+    echo json_encode(['success' => false, 'message' => 'Unable to send email. Please check your XAMPP mail configuration.']);
+    exit;
 }
 ?>
